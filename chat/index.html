@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好友模拟器</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+</head>
+<body>
+    <!-- 联系人列表 -->
+    <div class="contacts-container" id="contactsContainer">
+        <div class="contact-item" onclick="enterChat('damageBro')">
+            <img src="assets/images/bad.jpg" class="avatar">
+            <div>
+                <h3>那咋了</h3>
+                <p style="color:#666;font-size:14px;">烦死了[白眼]</p>
+            </div>
+        </div>
+        <div class="contact-item" onclick="enterChat('happyPanda')">
+            <img src="assets/images/微信图片_20250316155910.jpg" class="avatar">
+            <div>
+                <h3>快乐的panda</h3>
+                <p style="color:#666;font-size:14px;">嘻嘻</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 聊天界面 -->
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="back-btn" onclick="showContacts()">←</div>
+            <h3 id="currentName"></h3>
+        </div>
+
+        <div class="message-area" id="messageArea"></div>
+
+        <div class="input-area">
+            <input type="text" id="messageInput" placeholder="输入消息..." onkeypress="handleEnter(event)">
+            <button id="sendBtn" onclick="sendMessage()">发送</button>
+        </div>
+    </div>
+
+    <!-- 管理界面 -->
+    <div id="adminPanel" style="position:fixed;bottom:20px;right:20px;display:none;">
+        <button onclick="toggleAdmin()">管理回复库</button>
+
+        <div id="adminInterface" style="display:none;background:white;padding:20px;box-shadow:0 0 10px rgba(0,0,0,0.2)">
+            <h3>回复库管理</h3>
+
+            <div>
+                <label>选择好友：
+                    <select id="selectFriend">
+                        <option value="damageBro">那咋了</option>
+                        <option value="happyPanda">快乐的panda</option>
+                    </select>
+                </label>
+            </div>
+
+            <div style="margin-top:15px">
+                <h4>关键词回复管理</h4>
+                <input type="text" id="newKeyword" placeholder="输入正则表达式">
+                <input type="text" id="newReply" placeholder="输入回复内容">
+                <button onclick="addKeywordReply()">添加</button>
+
+                <ul id="keywordList"></ul>
+            </div>
+
+            <div style="margin-top:15px">
+                <h4>添加通用回复</h4>
+                <input type="text" id="newGeneralReply" placeholder="输入通用回复">
+                <button onclick="addGeneralReply()">添加</button>
+            </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+        // 页面加载完成后初始化
+        window.addEventListener('load', async () => {
+            await loadReplies(); // 确保回复库加载完成
+            Object.keys(messageLibrary).forEach(friend => initStorage(friend));
+        });
+    </script>
+</body>
+</html>

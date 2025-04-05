@@ -1,0 +1,81 @@
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- 封面 -->
+    <div class="container">
+        <div class="row">
+            <div class="birth-cover-container">
+                <button id="birth-start-btn" disabled>加载中...</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 歌曲 -->
+    <audio class="song" controls loop style="display: none; opacity: 0">
+        <source src="music/index.mp3" />
+    </audio>
+
+    <!-- 彩带 -->
+    <canvas id="brith-confetti"></canvas>
+
+    <!-- 主内容 -->
+    <div class="main">
+        <div class="container pt-5">
+            <div class="row">
+                <!-- 横幅图 -->
+                <div class="col-12 col-xl-6 mx-auto">
+                    <img src="img/banner.png" alt="banner.png">
+                </div>
+
+                <!-- 寿星 -->
+                <div class="col-12  text-center">
+                    <div id="name" class="birth-people-name">xyh</div>
+                </div>
+
+                <!-- 祝词 -->
+                <div class="col-12 text-center">
+                    <div class="birth-greeting-word">
+                        <div id="greeting-word" class="typing">
+                            <h2><span>生日快乐呀，</span><i id="inline-name" class="birth-inline-people-name">xyh</i><span id="people-type">同学</span></h2>
+                            <h2>且喜且乐，且以永日</h2>
+                            <h2>一寸一礼，一寸欢喜</h2>
+                            <h2>遥叩芳辰，生辰吉乐</h2>
+                            <h2>笑口常开，身心自在</h2>
+                            <h2>心有暖阳，身沐和风</h2>
+                            <h2>志凌青云，生辰焕新</h2>
+                            <h2>    ——快乐panda</h2>
+                        </div>
+                        <span id="typed" style="white-space: pre;"></span>
+                    </div>
+                </div>
+
+                <!-- 蛋糕图 -->
+                <div class="col-12 col-xl-3 birth-cake">
+                    <img src="img/cake.gif" alt="cake.gif">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 气球图 -->
+        <img src="img/balloon.png" alt="balloon" class="brith-balloon">
+    </div>
+
+    <script src="js/lib/snowflakes.min.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/typed.min.js"></script>
+    <script src="js/lib/dayjs.min.js"></script>
+    <script src="js/confetti.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
