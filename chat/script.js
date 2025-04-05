@@ -115,7 +115,7 @@ function sendMessage() {
     }
 
     // 检测用户输入是否为“xyh”
-    if (message === "...") {
+    if (message === "。。。") {
         // 跳转到生日页面
         window.location.href = '../happy-birthday-main/index.html'; // 修改为正确的路径
         return; // 结束函数，不再执行后续逻辑
